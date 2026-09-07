@@ -16,6 +16,19 @@ albedo_color = Color(0.58431375, 0.98039216, 0, 1)
 material = SubResource("StandardMaterial3D_o815p")
 size = Vector3(1.3, 1, 1.5)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
+sky_top_color = Color(0.9137255, 0.627451, 0, 1)
+sky_horizon_color = Color(0.9529412, 0.47058824, 0.6666667, 1)
+ground_bottom_color = Color(0.7921569, 0.44705883, 0.9764706, 1)
+ground_horizon_color = Color(0, 0.77254903, 0.5254902, 1)
+
+[sub_resource type="Sky" id="Sky_yf5fn"]
+sky_material = SubResource("ProceduralSkyMaterial_57qmd")
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 2
+sky = SubResource("Sky_yf5fn")
+
 [node name="Level1" type="Node3D" unique_id=965764355]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=766895778]
@@ -25,9 +38,6 @@ mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=181142735]
 shape = SubResource("BoxShape3D_m8f83")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1551960000]
-transform = Transform3D(1, 0, 0, 0, 0.88296723, 0.46943468, 0, -0.46943468, 0.88296723, 0, 4.1575933, 11.594579)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=326194472]
 transform = Transform3D(1, 0, 0, 0, 0.5607901, 0.827958, 0, -0.827958, 0.5607901, 0, 10.747864, 13.759775)
@@ -51,5 +61,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.8510952)
 
 [node name="Steve" parent="." unique_id=1378513726 instance=ExtResource("2_liswp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6.017473)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=446665900]
+environment = SubResource("Environment_g4v7s")
 
 [editable path="Boxen/Box2"]

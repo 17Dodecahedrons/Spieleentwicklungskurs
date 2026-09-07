@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d4bvn6cx8y2ce"]
 
 [ext_resource type="Script" uid="uid://ttxm74rw48nf" path="res://skripte/steve.gd" id="1_t8r63"]
+[ext_resource type="Script" uid="uid://memmr4jseqax" path="res://skripte/spring_arm_3d.gd" id="2_g4sdr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
 albedo_color = Color(1, 0.4, 1, 1)
@@ -20,3 +21,9 @@ mesh = SubResource("CapsuleMesh_g4v7s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1400904207]
 shape = SubResource("CapsuleShape3D_rp2lg")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D" unique_id=1486344463]
+spring_length = 6.0
+script = ExtResource("2_g4sdr")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/SpringArm3D" unique_id=100182690]

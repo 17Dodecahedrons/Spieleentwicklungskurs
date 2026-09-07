@@ -4,6 +4,7 @@ const SPIELER_GESCHWINDIGKEIT = 5.0
 const SPRUNGKRAFT = 4.5
 @onready var steve_mesh = $MeshInstance3D
 @onready var steve_col = $CollisionShape3D
+@onready var camera = $SpringArm3D/Camera3D
 
 func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem Frame
 	# Springen
@@ -40,6 +41,7 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 	# Steuerung
 	var input_dir = Input.get_vector("left", "right", "forward", "backward") # Vektor (-X, +X, -Y, +Y)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() # Einbettung
+	direction = direction.rotated(Vector3.UP, camera.global_rotation.y) # Basiswechsel
 	if direction: # Tastendruck erkannt
 		velocity.x = direction.x * neue_geschwindigkeit
 		velocity.z = direction.z * neue_geschwindigkeit
