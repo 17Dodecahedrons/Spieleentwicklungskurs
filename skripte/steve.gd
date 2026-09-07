@@ -13,14 +13,19 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 	if not is_on_floor():
 		velocity += gravity * delta
 		
+	# Sprinten
+	var neue_geschwindigkeit = SPIELER_GESCHWINDIGKEIT
+	if Input.is_action_pressed("sprint"):
+		neue_geschwindigkeit = 2 * SPIELER_GESCHWINDIGKEIT	
+		
 	# Steuerung
 	var input_dir = Input.get_vector("left", "right", "forward", "backward") # Vektor (-X, +X, -Y, +Y)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() # Einbettung
 	if direction: # Tastendruck erkannt
-		velocity.x = direction.x * SPIELER_GESCHWINDIGKEIT
-		velocity.z = direction.z * SPIELER_GESCHWINDIGKEIT
+		velocity.x = direction.x * neue_geschwindigkeit
+		velocity.z = direction.z * neue_geschwindigkeit
 	else: # Abbremsen
-		velocity.x = move_toward(velocity.x, 0, SPIELER_GESCHWINDIGKEIT) # Aktuell, Zielwert, Schrittgröße
-		velocity.z = move_toward(velocity.z, 0, SPIELER_GESCHWINDIGKEIT)
+		velocity.x = move_toward(velocity.x, 0, neue_geschwindigkeit) # Aktuell, Zielwert, Schrittgröße
+		velocity.z = move_toward(velocity.z, 0, neue_geschwindigkeit)
 	
 	move_and_slide() # Engine macht den Rest

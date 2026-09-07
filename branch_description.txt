@@ -1,1 +1,1 @@
-Erstes Spielerskript ohne Sprinten und ohne Ducken
+Spielerskript Sprinten
