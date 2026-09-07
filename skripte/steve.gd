@@ -48,5 +48,13 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 	else: # Abbremsen
 		velocity.x = move_toward(velocity.x, 0, neue_geschwindigkeit) # Aktuell, Zielwert, Schrittgröße
 		velocity.z = move_toward(velocity.z, 0, neue_geschwindigkeit)
+		
+	# Kollisionen
+	for index in self.get_slide_collision_count(): # Iteriere über Kollisionen
+		var collision = self.get_slide_collision(index) # Nimm dir Kollision
+		var collider = collision.get_collider() # Objekt mit dem wir kollidieren
+		if collider is RigidBody3D:
+			var push_dir = -collision.get_normal() # Lineare Algebra Magie
+			collider.apply_central_impulse(push_dir * 0.3)
 	
 	move_and_slide() # Engine macht den Rest
