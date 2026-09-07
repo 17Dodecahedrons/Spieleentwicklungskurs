@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7qiqhrues4my"]
 
 [ext_resource type="PackedScene" uid="uid://cg4s34hmgjgmg" path="res://szenen/box_1.tscn" id="1_o815p"]
+[ext_resource type="PackedScene" uid="uid://d4bvn6cx8y2ce" path="res://szenen/steve.tscn" id="2_liswp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(17, 0.5, 17)
@@ -29,7 +30,7 @@ shape = SubResource("BoxShape3D_m8f83")
 transform = Transform3D(1, 0, 0, 0, 0.88296723, 0.46943468, 0, -0.46943468, 0.88296723, 0, 4.1575933, 11.594579)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=326194472]
-transform = Transform3D(1, 0, 0, 0, 0.09521139, 0.9954571, 0, -0.9954571, 0.09521139, 0, 6.0242944, -18.125881)
+transform = Transform3D(1, 0, 0, 0, 0.5607901, 0.827958, 0, -0.827958, 0.5607901, 0, 10.747864, 13.759775)
 
 [node name="Boxen" type="Node3D" parent="." unique_id=1459884335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6639853, 0)
@@ -47,5 +48,8 @@ mesh = SubResource("BoxMesh_liswp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.8510952)
 
 [node name="Box4" parent="Boxen" unique_id=242059399 instance=ExtResource("1_o815p")]
+
+[node name="Steve" parent="." unique_id=1378513726 instance=ExtResource("2_liswp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6.017473)
 
 [editable path="Boxen/Box2"]

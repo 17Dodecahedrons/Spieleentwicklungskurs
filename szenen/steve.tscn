@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d4bvn6cx8y2ce"]
+
+[ext_resource type="Script" uid="uid://ttxm74rw48nf" path="res://skripte/steve.gd" id="1_t8r63"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(1, 0.4, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rp2lg"]
+
+[node name="Steve" type="Node3D" unique_id=1378513726]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1951759438]
+script = ExtResource("1_t8r63")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2027837737]
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1400904207]
+shape = SubResource("CapsuleShape3D_rp2lg")
