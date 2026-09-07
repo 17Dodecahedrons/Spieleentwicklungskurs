@@ -10,7 +10,7 @@ material = SubResource("StandardMaterial3D_yf5fn")
 
 [node name="JumpBubble" type="Node3D" unique_id=833237062]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1337346715]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1337346715 groups=["jumpbubble"]]
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2001291157]

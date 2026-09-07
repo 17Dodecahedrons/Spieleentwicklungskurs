@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 		if collider is RigidBody3D:
 			var push_dir = -collision.get_normal() # Lineare Algebra Magie
 			collider.apply_central_impulse(push_dir * 0.3)
-		if collider is StaticBody3D and JB_allow_jump:
+		if collider.is_in_group("jumpbubble") and JB_allow_jump:
 			velocity.y += 10 # Springen
 			# Schalter betätigen und Timer setzen
 			JB_allow_jump = false
