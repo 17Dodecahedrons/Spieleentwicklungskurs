@@ -8,6 +8,7 @@ outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [node name="GameManager" type="Node3D" unique_id=1728041114]
+process_mode = 3
 script = ExtResource("1_l1ld3")
 
 [node name="CanvasLayerDefeat" type="CanvasLayer" parent="." unique_id=1748145336]
