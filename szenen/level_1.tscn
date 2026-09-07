@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c7qiqhrues4my"]
+
+[ext_resource type="PackedScene" uid="uid://cg4s34hmgjgmg" path="res://szenen/box_1.tscn" id="1_o815p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(17, 0.5, 17)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8f83"]
+size = Vector3(17, 0.5, 17)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o815p"]
+albedo_color = Color(0.58431375, 0.98039216, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_liswp"]
+material = SubResource("StandardMaterial3D_o815p")
+size = Vector3(1.3, 1, 1.5)
+
+[node name="Level1" type="Node3D" unique_id=965764355]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=766895778]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=237442466]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=181142735]
+shape = SubResource("BoxShape3D_m8f83")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1551960000]
+transform = Transform3D(1, 0, 0, 0, 0.88296723, 0.46943468, 0, -0.46943468, 0.88296723, 0, 4.1575933, 11.594579)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=326194472]
+transform = Transform3D(1, 0, 0, 0, 0.09521139, 0.9954571, 0, -0.9954571, 0.09521139, 0, 6.0242944, -18.125881)
+
+[node name="Boxen" type="Node3D" parent="." unique_id=1459884335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6639853, 0)
+
+[node name="Box1" parent="Boxen" unique_id=1886901815 instance=ExtResource("1_o815p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1957154, 0, 0)
+
+[node name="Box2" parent="Boxen" unique_id=1028594464 instance=ExtResource("1_o815p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8692508, 0, 0)
+
+[node name="MeshInstance3D" parent="Boxen/Box2/RigidBody3D" parent_id_path=PackedInt32Array(1028594464, 1729102894) index="0" unique_id=168233386]
+mesh = SubResource("BoxMesh_liswp")
+
+[node name="Box3" parent="Boxen" unique_id=485001138 instance=ExtResource("1_o815p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.8510952)
+
+[node name="Box4" parent="Boxen" unique_id=242059399 instance=ExtResource("1_o815p")]
+
+[editable path="Boxen/Box2"]
