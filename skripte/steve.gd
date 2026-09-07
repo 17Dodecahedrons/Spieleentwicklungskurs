@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 const SPIELER_GESCHWINDIGKEIT = 5.0
 const SPRUNGKRAFT = 4.5
+@onready var steve_mesh = $MeshInstance3D
+@onready var steve_col = $CollisionShape3D
 
 func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem Frame
 	# Springen
@@ -17,6 +19,23 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 	var neue_geschwindigkeit = SPIELER_GESCHWINDIGKEIT
 	if Input.is_action_pressed("sprint"):
 		neue_geschwindigkeit = 2 * SPIELER_GESCHWINDIGKEIT	
+		
+	# Ducken
+	if Input.is_action_pressed("crouch"):
+		neue_geschwindigkeit = 0.5 * SPIELER_GESCHWINDIGKEIT
+		# Höhe anpassen
+		steve_mesh.mesh.height = 1
+		steve_col.shape.height = 1
+		# Richtig positionieren
+		steve_mesh.position.y = -0.5
+		steve_col.position.y = -0.5
+	else:
+		# Höhe anpassen
+		steve_mesh.mesh.height = 2
+		steve_col.shape.height = 2
+		# Richtig positionieren
+		steve_mesh.position.y = 0
+		steve_col.position.y = 0
 		
 	# Steuerung
 	var input_dir = Input.get_vector("left", "right", "forward", "backward") # Vektor (-X, +X, -Y, +Y)
