@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b0ng4i8ihueso"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(1, 1, 0.101960786, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hh2r7"]
+
+[node name="JumpBubble" type="Node3D" unique_id=833237062]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1337346715]
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2001291157]
+mesh = SubResource("SphereMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=957063695]
+shape = SubResource("SphereShape3D_hh2r7")

@@ -5,6 +5,10 @@ const SPRUNGKRAFT = 4.5
 @onready var steve_mesh = $MeshInstance3D
 @onready var steve_col = $CollisionShape3D
 @onready var camera = $SpringArm3D/Camera3D
+# Jump Bubble Variablen: Vermeide Mehrfachkollisionen
+const JB_COOLDOWN = 0.5 # Halbe Sekunde
+var JB_allow_jump = true # Schalter
+var JB_timer = 0.0
 
 func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem Frame
 	# Springen
@@ -56,5 +60,16 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 		if collider is RigidBody3D:
 			var push_dir = -collision.get_normal() # Lineare Algebra Magie
 			collider.apply_central_impulse(push_dir * 0.3)
+		if collider is StaticBody3D and JB_allow_jump:
+			velocity.y += 10 # Springen
+			# Schalter betätigen und Timer setzen
+			JB_allow_jump = false
+			JB_timer = JB_COOLDOWN
+			
+	# Jump Bubble Timer
+	if not JB_allow_jump:
+		JB_timer -= delta
+		if JB_timer < 0:
+			JB_allow_jump = true
 	
 	move_and_slide() # Engine macht den Rest

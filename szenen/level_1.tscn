@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cg4s34hmgjgmg" path="res://szenen/box_1.tscn" id="1_o815p"]
 [ext_resource type="PackedScene" uid="uid://d4bvn6cx8y2ce" path="res://szenen/steve.tscn" id="2_liswp"]
+[ext_resource type="PackedScene" uid="uid://b0ng4i8ihueso" path="res://szenen/jump_bubble.tscn" id="3_041cm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(17, 0.5, 17)
@@ -65,5 +66,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6.017473)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=446665900]
 environment = SubResource("Environment_g4v7s")
+
+[node name="JumpBubble" parent="." unique_id=833237062 instance=ExtResource("3_041cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 4.430283)
 
 [editable path="Boxen/Box2"]
