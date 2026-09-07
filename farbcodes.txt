@@ -1,0 +1,10 @@
+Spieler: 		ff66ff
+Box: 			42ffff
+Ausnahmebox: 	95fa00
+Gegner: 		ff0000
+Münze: 		ffb723   - Metallic: 0.76
+World Environment:
+-	Himmel: 		e9a000
+-	Himmelhorizont: 	f378aa
+-	Boden:			ca72f9
+-	Bodenhorizont:	00c586
