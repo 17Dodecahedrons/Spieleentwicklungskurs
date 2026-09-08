@@ -1,12 +1,12 @@
 extends Node3D
 
 @onready var defeat_screen = $CanvasLayerDefeat
+@onready var death_barrier = get_tree().current_scene.find_child("DeathBarrier")
 
 func _ready() -> void:
 	defeat_screen.hide()
 	
-	# Finde Death Barrier in der Szene
-	var death_barrier = get_tree().current_scene.find_child("DeathBarrier")
+	# Signal
 	if death_barrier.has_signal("trigger_loss"):
 		death_barrier.trigger_loss.connect(_trigger_loss)
 		
