@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SPIELER_GESCHWINDIGKEIT = 5.0
-const SPRUNGKRAFT = 4.5
+const SPRUNGKRAFT = 7.0
 
 func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem Frame
 	# Springen
