@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SPIELER_GESCHWINDIGKEIT = 5.0
-const SPRUNGKRAFT = 4.5
+const SPRUNGKRAFT = 7.0
 @onready var steve_mesh = $MeshInstance3D
 @onready var steve_col = $CollisionShape3D
 
