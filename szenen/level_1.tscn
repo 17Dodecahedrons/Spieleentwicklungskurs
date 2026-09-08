@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ng4i8ihueso" path="res://szenen/jump_bubble.tscn" id="3_041cm"]
 [ext_resource type="PackedScene" uid="uid://csa6k5800fvi0" path="res://szenen/game_manager.tscn" id="4_58t2n"]
 [ext_resource type="Script" uid="uid://ckscgudqvvopu" path="res://skripte/death_barrier.gd" id="5_0xjei"]
+[ext_resource type="PackedScene" uid="uid://y001bph1a2t2" path="res://szenen/coin_1.tscn" id="6_rdh1c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(17, 0.5, 17)
@@ -85,5 +86,19 @@ script = ExtResource("5_0xjei")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathBarrier" unique_id=218380542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.8428955, 0)
 shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Coins" type="Node3D" parent="." unique_id=956549296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2240486, 2.4408703)
+
+[node name="Coin1" parent="Coins" unique_id=966937899 instance=ExtResource("6_rdh1c")]
+
+[node name="Coin2" parent="Coins" unique_id=2027117140 instance=ExtResource("6_rdh1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7963223, 3.6131096, 2.0776038)
+
+[node name="Coin3" parent="Coins" unique_id=193274201 instance=ExtResource("6_rdh1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0710964, 0, 0)
+
+[node name="Coin4" parent="Coins" unique_id=1274407990 instance=ExtResource("6_rdh1c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.312204, 2.4657354, 0)
 
 [editable path="Boxen/Box2"]
