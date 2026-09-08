@@ -24,3 +24,17 @@ grow_vertical = 2
 layout_mode = 2
 text = "Du hast verloren"
 label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="CanvasLayerWin" type="CanvasLayer" parent="CanvasLayerDefeat" unique_id=158030682]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayerDefeat/CanvasLayerWin" unique_id=1049602306]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayerDefeat/CanvasLayerWin/CenterContainer" unique_id=554244449]
+layout_mode = 2
+text = "Du hast gewonnen"
+label_settings = SubResource("LabelSettings_g4v7s")
