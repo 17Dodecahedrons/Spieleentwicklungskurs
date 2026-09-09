@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://1k3ho71ecmar"]
+
+[ext_resource type="Script" uid="uid://cqtfjtafgy3ta" path="res://skripte/gegner.gd" id="1_rqac0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnnbo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_57qmd")
+top_radius = 0.1
+bottom_radius = 0.3
+height = 0.3
+
+[node name="Gegner1" type="Node3D" unique_id=288702134]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1359034901]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_rqac0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1486138364]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=532475817]
+shape = SubResource("BoxShape3D_qnnbo")
+
+[node name="Nase" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2025242515]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -0.63151693)
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D" unique_id=944999334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7677671)
