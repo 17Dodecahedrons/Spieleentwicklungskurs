@@ -1,6 +1,6 @@
 shader_type spatial;
 
-uniform float hit_intensity = 0.02;
+uniform float hit_intensity = 0.0;
 
 void vertex() {
 	// Mehr Mathe Magie

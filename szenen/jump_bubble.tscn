@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://b0ng4i8ihueso"]
 
+[ext_resource type="Script" uid="uid://fplfg4o5dnfh" path="res://skripte/jump_bubble.gd" id="1_5ig7e"]
 [ext_resource type="Shader" uid="uid://upedr3ltusid" path="res://shader/jump_bubble.gdshader" id="1_6yrsv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykmtj"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_6yrsv")
-shader_parameter/hit_intensity = 0.02
+shader_parameter/hit_intensity = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+resource_local_to_scene = true
 material = SubResource("ShaderMaterial_ykmtj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hh2r7"]
@@ -16,6 +19,7 @@ material = SubResource("ShaderMaterial_ykmtj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1337346715 groups=["jumpbubble"]]
 collision_mask = 0
+script = ExtResource("1_5ig7e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2001291157]
 mesh = SubResource("SphereMesh_g4v7s")

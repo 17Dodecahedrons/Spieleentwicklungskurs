@@ -65,6 +65,8 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 			# Schalter betätigen und Timer setzen
 			JB_allow_jump = false
 			JB_timer = JB_COOLDOWN
+			# Jiggle
+			collider._jiggle()
 			
 	# Jump Bubble Timer
 	if not JB_allow_jump:
