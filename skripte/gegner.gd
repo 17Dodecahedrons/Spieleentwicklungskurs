@@ -40,6 +40,9 @@ func _physics_process(delta: float) -> void:
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
+		if collider is RigidBody3D:
+			var push_dir = -collision.get_normal() # Lineare Algebra Magie
+			collider.apply_central_impulse(push_dir * 0.3 * SPEED)
 		if collider.is_in_group("player"):
 			trigger_loss.emit()
 	
