@@ -3,6 +3,7 @@ extends Node3D
 @onready var defeat_screen = $CanvasLayerDefeat
 @onready var win_screen = $CanvasLayerDefeat/CanvasLayerWin
 @onready var hud_label = $CanvasLayerHUD/Label
+@onready var blur_screen = $CanvasLayerBlur
 @onready var death_barrier = get_tree().current_scene.find_child("DeathBarrier")
 @onready var coins = get_tree().current_scene.find_child("Coins")
 @onready var coin_count = coins.get_child_count()
@@ -25,6 +26,7 @@ func _update_hud() -> void:
 func _ready() -> void:
 	defeat_screen.hide()
 	win_screen.hide()
+	blur_screen.hide()
 	_update_hud()
 	
 	# Signal
@@ -45,6 +47,7 @@ func _trigger_win() -> void:
 func _trigger_loss() -> void:
 	game_over = true
 	defeat_screen.show()
+	blur_screen.show()
 	get_tree().paused = true
 	
 func _unhandled_input(event: InputEvent) -> void:
