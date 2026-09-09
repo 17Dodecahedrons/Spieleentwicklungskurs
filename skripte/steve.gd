@@ -9,6 +9,9 @@ const SPRUNGKRAFT = 7.0
 const JB_COOLDOWN = 0.5 # Halbe Sekunde
 var JB_allow_jump = true # Schalter
 var JB_timer = 0.0
+# Signale
+signal defeat_enemy(body: CharacterBody3D)
+signal trigger_loss()
 
 func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem Frame
 	# Springen
@@ -57,6 +60,9 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 	for index in self.get_slide_collision_count(): # Iteriere über Kollisionen
 		var collision = self.get_slide_collision(index) # Nimm dir Kollision
 		var collider = collision.get_collider() # Objekt mit dem wir kollidieren
+		# Null Instanzen ausweichen
+		if not is_instance_valid(collider):
+			continue
 		if collider is RigidBody3D:
 			var push_dir = -collision.get_normal() # Lineare Algebra Magie
 			collider.apply_central_impulse(push_dir * 0.3)
@@ -67,6 +73,14 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 			JB_timer = JB_COOLDOWN
 			# Jiggle
 			collider._jiggle()
+		if collider.is_in_group("enemy"):
+			# Springen wir von oben drauf? Prüfe mit Linearer Algebra Magie
+			var normal = collision.get_normal()
+			if normal.dot(Vector3.UP) > 0.7:
+				# Wir kommen von Oben
+				defeat_enemy.emit(collider)
+			else:
+				trigger_loss.emit()
 			
 	# Jump Bubble Timer
 	if not JB_allow_jump:

@@ -5,6 +5,7 @@ const SPEED = 2.0
 # Variablen um Gehen und Umdrehen zu kontrollieren
 var keep_moving = true
 var still_turning = false
+signal trigger_loss()
 
 func _physics_process(delta: float) -> void:
 	# Schwerkraft
@@ -34,5 +35,12 @@ func _physics_process(delta: float) -> void:
 			await tween.finished
 			still_turning = false # Umdrehen ist fertig
 			keep_moving = true # Wir können uns wieder bewegen
+			
+	# Kollisionen
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		var collider = collision.get_collider()
+		if collider.is_in_group("player"):
+			trigger_loss.emit()
 	
 	move_and_slide()

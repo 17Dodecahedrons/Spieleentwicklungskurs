@@ -6,6 +6,8 @@ extends Node3D
 @onready var blur_screen = $CanvasLayerBlur
 @onready var death_barrier = get_tree().current_scene.find_child("DeathBarrier")
 @onready var coins = get_tree().current_scene.find_child("Coins")
+@onready var player = get_tree().current_scene.find_child("Steve").find_child("CharacterBody3D")
+@onready var enemies = get_tree().current_scene.find_child("Gegner")
 @onready var coin_count = coins.get_child_count()
 var current_coins = 0
 var game_over = false
@@ -20,6 +22,12 @@ func _collected_coin() -> void:
 		
 func _update_hud() -> void:
 	hud_label.text = "Coins: " + str(current_coins) + " / " + str(coin_count)
+	
+######################## Gegner Managen
+
+func _delete_enemy(body: CharacterBody3D) -> void:
+	var enemy_root = body.get_parent()
+	enemy_root.queue_free()
 		
 ######################## Starteinstellungen
 
@@ -33,10 +41,23 @@ func _ready() -> void:
 	if death_barrier.has_signal("trigger_loss"):
 		death_barrier.trigger_loss.connect(_trigger_loss)
 		
+	if player.has_signal("trigger_loss"):
+		player.trigger_loss.connect(_trigger_loss)
+		pass
+		
+	if player.has_signal("defeat_enemy"):
+		player.defeat_enemy.connect(_delete_enemy)
+		
+	for enemy in enemies.get_children():
+		var enemy_body = enemy.find_child("CharacterBody3D")
+		if enemy_body.has_signal("trigger_loss"):
+			print("a")
+			enemy_body.trigger_loss.connect(_trigger_loss)
+		
 	for coin in coins.get_children():
 		if coin.has_signal("collected"):
 			coin.collected.connect(_collected_coin)
-		
+	
 ######################## Game Over Bildschirm		
 
 func _trigger_win() -> void:
