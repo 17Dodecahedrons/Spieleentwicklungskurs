@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://b0ng4i8ihueso"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
-albedo_color = Color(1, 1, 0.101960786, 1)
+[ext_resource type="Shader" uid="uid://upedr3ltusid" path="res://shader/jump_bubble.gdshader" id="1_6yrsv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykmtj"]
+render_priority = 0
+shader = ExtResource("1_6yrsv")
+shader_parameter/hit_intensity = 0.02
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
-material = SubResource("StandardMaterial3D_yf5fn")
+material = SubResource("ShaderMaterial_ykmtj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hh2r7"]
 

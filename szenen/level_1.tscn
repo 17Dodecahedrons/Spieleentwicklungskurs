@@ -74,9 +74,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6.017473)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=446665900]
 environment = SubResource("Environment_g4v7s")
 
-[node name="JumpBubble" parent="." unique_id=833237062 instance=ExtResource("3_041cm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 4.430283)
-
 [node name="GameManager" parent="." unique_id=1728041114 instance=ExtResource("4_58t2n")]
 
 [node name="DeathBarrier" type="Area3D" parent="." unique_id=1402272333]
@@ -112,5 +109,13 @@ transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 16.7
 
 [node name="Plattform3" parent="Plattformen" unique_id=69547830 instance=ExtResource("7_qtk5y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.492954, 0, 0)
+
+[node name="JumpBubbles" type="Node3D" parent="." unique_id=1194367256]
+
+[node name="JumpBubble1" parent="JumpBubbles" unique_id=833237062 instance=ExtResource("3_041cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 4.430283)
+
+[node name="JumpBubble2" parent="JumpBubbles" unique_id=905459363 instance=ExtResource("3_041cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 6.6846967)
 
 [editable path="Boxen/Box2"]
