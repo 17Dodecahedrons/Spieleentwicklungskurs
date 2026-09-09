@@ -1,1 +1,1 @@
-Münzen HUD
+Animation player
