@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 2.0
+@export var speed = 2.0
 @onready var floor_detection = $RayCast3D
 # Variablen um Gehen und Umdrehen zu kontrollieren
 var keep_moving = true
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	# Bewegung
 	if keep_moving and is_on_floor():
 		# Basiswechsel
-		velocity = -global_transform.basis.z * SPEED
+		velocity = -global_transform.basis.z * speed
 		# Überprüfe ob ein Abgrund vor uns ist
 		if not floor_detection.is_colliding():
 			keep_moving = false
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider is RigidBody3D:
 			var push_dir = -collision.get_normal() # Lineare Algebra Magie
-			collider.apply_central_impulse(push_dir * 0.3 * SPEED)
+			collider.apply_central_impulse(push_dir * 0.3 * speed)
 		if collider.is_in_group("player"):
 			trigger_loss.emit()
 	
