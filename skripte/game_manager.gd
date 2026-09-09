@@ -2,22 +2,30 @@ extends Node3D
 
 @onready var defeat_screen = $CanvasLayerDefeat
 @onready var win_screen = $CanvasLayerDefeat/CanvasLayerWin
+@onready var hud_label = $CanvasLayerHUD/Label
 @onready var death_barrier = get_tree().current_scene.find_child("DeathBarrier")
 @onready var coins = get_tree().current_scene.find_child("Coins")
 @onready var coin_count = coins.get_child_count()
+var current_coins = 0
 var game_over = false
+
 
 ######################## Münzenlogik
 func _collected_coin() -> void:
-	coin_count -= 1
-	if coin_count == 0:
+	current_coins += 1
+	_update_hud()
+	if current_coins == coin_count:
 		_trigger_win()
-
-######################## Signalkonfiguration
+		
+func _update_hud() -> void:
+	hud_label.text = "Coins: " + str(current_coins) + " / " + str(coin_count)
+		
+######################## Starteinstellungen
 
 func _ready() -> void:
 	defeat_screen.hide()
 	win_screen.hide()
+	_update_hud()
 	
 	# Signal
 	if death_barrier.has_signal("trigger_loss"):
