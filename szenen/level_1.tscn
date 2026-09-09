@@ -127,11 +127,4 @@ transform = Transform3D(0.63960636, 0, -0.7687026, 0, 1, 0, 0.7687026, 0, 0.6396
 [node name="Gegner2" parent="Gegner" unique_id=51566157 instance=ExtResource("8_axrqy")]
 transform = Transform3D(-0.6664375, 0, 0.74556094, 0, 1, 0, -0.74556094, 0, -0.6664375, 4.799965, 2.2393608, -3.0824366)
 
-[node name="Gegner3" parent="Gegner" unique_id=94570109 instance=ExtResource("8_axrqy")]
-transform = Transform3D(-0.7028561, 0, -1.3646312, 0, 1.535, 0, 1.3646312, 0, -0.7028561, -6.064536, 3.615151, -4.063231)
-
-[node name="CharacterBody3D" parent="Gegner/Gegner3" index="0" unique_id=1359034901]
-speed = 15.0
-
 [editable path="Boxen/Box2"]
-[editable path="Gegner/Gegner3"]
