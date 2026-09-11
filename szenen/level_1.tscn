@@ -15,6 +15,7 @@ size = Vector3(1.3, 1, 1.5)
 [node name="Level1" type="Node3D" unique_id=965764355]
 
 [node name="Boden" type="StaticBody3D" parent="." unique_id=766895778]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boden" unique_id=237442466]
 mesh = SubResource("BoxMesh_g4v7s")
@@ -29,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 0.88296723, 0.46943468, 0, -0.46943468, 0.88
 transform = Transform3D(1, 0, 0, 0, 0.09521139, 0.9954571, 0, -0.9954571, 0.09521139, 0, 6.0242944, -18.125881)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=470304058]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.679957, 0)
+transform = Transform3D(1, 0, 0, 0, -0.4934669, -0.8697646, 0, 0.8697646, -0.4934669, 0, 2.679957, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1103332955]
 mesh = SubResource("BoxMesh_m8f83")
