@@ -32,6 +32,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CanvasLayerVictory" type="CanvasLayer" parent="." unique_id=158030682]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayerVictory" unique_id=1049602306]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayerVictory/CenterContainer" unique_id=554244449]
+layout_mode = 2
+text = "Du hast gewonnen"
+label_settings = SubResource("LabelSettings_g4v7s")
+
 [node name="CanvasLayerDefeat" type="CanvasLayer" parent="." unique_id=1748145336]
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayerDefeat" unique_id=1652959034]
@@ -46,21 +61,8 @@ layout_mode = 2
 text = "Du hast verloren"
 label_settings = SubResource("LabelSettings_g4v7s")
 
-[node name="CanvasLayerWin" type="CanvasLayer" parent="CanvasLayerDefeat" unique_id=158030682]
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayerDefeat/CanvasLayerWin" unique_id=1049602306]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayerDefeat/CanvasLayerWin/CenterContainer" unique_id=554244449]
-layout_mode = 2
-text = "Du hast gewonnen"
-label_settings = SubResource("LabelSettings_g4v7s")
-
 [node name="CanvasLayerHUD" type="CanvasLayer" parent="." unique_id=1264964107]
+visible = false
 
 [node name="Label" type="Label" parent="CanvasLayerHUD" unique_id=895457982]
 offset_left = 953.0
