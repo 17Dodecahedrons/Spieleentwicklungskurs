@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void: # delta: Sekunden seitdem letztem F
 	# Schwerkraft
 	var gravity = Vector3(0, -9.8, 0) # (X, Y, Z)
 	if not is_on_floor():
-		velocity += gravity * delta
+		velocity += gravity * delta * 2
 		
 	# Sprinten
 	var neue_geschwindigkeit = SPIELER_GESCHWINDIGKEIT
