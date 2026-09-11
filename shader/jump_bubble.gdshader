@@ -3,7 +3,7 @@ shader_type spatial;
 uniform float hit_intensity = 0.0;
 
 void vertex() {
-	// Mehr Mathe Magie
+	// Mehr Trigonometrie Magie (Cosinus für Welleneffekt)
 	float jiggle = cos(TIME * 15.0 + VERTEX.y * 10.0) * hit_intensity;
 	VERTEX += NORMAL * jiggle;
 }

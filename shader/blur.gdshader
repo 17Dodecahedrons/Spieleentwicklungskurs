@@ -5,8 +5,8 @@ uniform vec4 blur_color = vec4(0.5, 0.5, 0.5, 0.5); // Graue, durchsichtige Schi
 uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap; // Technische Magie
 
 void fragment() {
-	// Pro Pixel machen wir nun folgendes
-	vec4 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount); // SCREEN_UV gibt uns die Pixelfarbe
+	// Mehr technische Magie: Wir nehmen uns den durchschnittlichen Farbpixelwert auf dem Bildschirm
+	vec4 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount); 
 	// Neue Farbe
 	COLOR = mix(screen_color, blur_color, blur_color.a);
 }
