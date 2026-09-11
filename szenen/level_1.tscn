@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cg4s34hmgjgmg" path="res://szenen/box_1.tscn" id="1_o815p"]
 [ext_resource type="PackedScene" uid="uid://d4bvn6cx8y2ce" path="res://szenen/steve.tscn" id="2_liswp"]
+[ext_resource type="PackedScene" uid="uid://b0ng4i8ihueso" path="res://szenen/jump_bubble1.tscn" id="3_041cm"]
 [ext_resource type="PackedScene" uid="uid://csa6k5800fvi0" path="res://szenen/game_manager.tscn" id="4_58t2n"]
 [ext_resource type="Script" uid="uid://ckscgudqvvopu" path="res://skripte/death_barrier.gd" id="5_0xjei"]
-[ext_resource type="PackedScene" uid="uid://b0ng4i8ihueso" path="res://szenen/jump_bubble1.tscn" id="3_041cm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 size = Vector3(17, 0.5, 17)
@@ -77,9 +77,13 @@ environment = SubResource("Environment_g4v7s")
 [node name="JumpBubble1" parent="JumpBubbles" unique_id=833237062 instance=ExtResource("3_041cm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 4.430283)
 
+[node name="JumpBubble2" parent="JumpBubbles" unique_id=1673082701 instance=ExtResource("3_041cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 6.570498)
+
 [node name="GameManager" parent="." unique_id=1728041114 instance=ExtResource("4_58t2n")]
 
 [node name="DeathBarrier" type="Area3D" parent="." unique_id=1402272333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.787898, 0)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("5_0xjei")
@@ -87,7 +91,5 @@ script = ExtResource("5_0xjei")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathBarrier" unique_id=218380542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.8428955, 0)
 shape = SubResource("BoxShape3D_g4v7s")
-[node name="JumpBubble2" parent="JumpBubbles" unique_id=1673082701 instance=ExtResource("3_041cm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 6.570498)
 
 [editable path="Boxen/Box2"]
