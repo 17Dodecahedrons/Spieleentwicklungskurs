@@ -50,7 +50,6 @@ func _ready() -> void:
 	for enemy in enemies.get_children():
 		var enemy_body = enemy.find_child("CharacterBody3D")
 		if enemy_body.has_signal("trigger_loss"):
-			print("a")
 			enemy_body.trigger_loss.connect(_trigger_loss)
 		
 	for coin in coins.get_children():

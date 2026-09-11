@@ -38,6 +38,21 @@ sky = SubResource("Sky_yf5fn")
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(100, 5, 100)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axrqy"]
+albedo_color = Color(0.38039216, 0.050980393, 0.7647059, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cjk8s"]
+material = SubResource("StandardMaterial3D_axrqy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7iwto"]
+albedo_color = Color(0.38039216, 0.050980393, 0.7647059, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0pkpf"]
+material = SubResource("StandardMaterial3D_7iwto")
+top_radius = 0.1
+bottom_radius = 0.3
+height = 0.3
+
 [node name="Level1" type="Node3D" unique_id=965764355]
 
 [node name="Boden" type="StaticBody3D" parent="." unique_id=766895778]
@@ -132,6 +147,16 @@ transform = Transform3D(2.1288085, -0.20547393, -0.50256586, 0, 0.92562515, -0.3
 transform = Transform3D(0.63960636, 0, -0.7687026, 0, 1, 0, 0.7687026, 0, 0.63960636, -6.064536, 2.2393608, 0)
 
 [node name="Gegner2" parent="Gegner" unique_id=51566157 instance=ExtResource("8_axrqy")]
-transform = Transform3D(-0.6664375, 0, 0.74556094, 0, 1, 0, -0.74556094, 0, -0.6664375, 4.799965, 2.2393608, -3.0824366)
+transform = Transform3D(-3.2755396, 0, 3.6644323, 0, 4.915, 0, -3.6644323, 0, -3.2755396, 4.799965, 206.02422, -3.0824366)
+
+[node name="CharacterBody3D" parent="Gegner/Gegner2" index="0" unique_id=1359034901]
+speed = 15.0
+
+[node name="MeshInstance3D" parent="Gegner/Gegner2/CharacterBody3D" index="0" unique_id=1486138364]
+mesh = SubResource("BoxMesh_cjk8s")
+
+[node name="Nase" parent="Gegner/Gegner2/CharacterBody3D" index="2" unique_id=2025242515]
+mesh = SubResource("CylinderMesh_0pkpf")
 
 [editable path="Boxen/Box2"]
+[editable path="Gegner/Gegner2"]
