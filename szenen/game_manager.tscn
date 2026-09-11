@@ -7,25 +7,20 @@ font_size = 57
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
-font_size = 33
-outline_size = 14
-outline_color = Color(0, 0, 0, 1)
-
 [node name="GameManager" type="Node3D" unique_id=1728041114]
 process_mode = 3
 script = ExtResource("1_l1ld3")
 
-[node name="CanvasLayerWin" type="CanvasLayer" parent="." unique_id=158030682]
+[node name="CanvasLayerVictory" type="CanvasLayer" parent="." unique_id=158030682]
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayerWin" unique_id=1049602306]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayerVictory" unique_id=1049602306]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayerWin/CenterContainer" unique_id=554244449]
+[node name="Label" type="Label" parent="CanvasLayerVictory/CenterContainer" unique_id=554244449]
 layout_mode = 2
 text = "Du hast gewonnen"
 label_settings = SubResource("LabelSettings_g4v7s")
@@ -43,13 +38,3 @@ grow_vertical = 2
 layout_mode = 2
 text = "Du hast verloren"
 label_settings = SubResource("LabelSettings_g4v7s")
-
-[node name="CanvasLayerHUD" type="CanvasLayer" parent="." unique_id=1264964107]
-
-[node name="Label" type="Label" parent="CanvasLayerHUD" unique_id=895457982]
-offset_left = 953.0
-offset_top = 602.0
-offset_right = 1142.0
-offset_bottom = 648.0
-text = "Coins: 0 / 0"
-label_settings = SubResource("LabelSettings_yf5fn")
