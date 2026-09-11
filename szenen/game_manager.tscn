@@ -33,7 +33,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayerVictory" type="CanvasLayer" parent="." unique_id=158030682]
-visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayerVictory" unique_id=1049602306]
 anchors_preset = 15
@@ -62,7 +61,6 @@ text = "Du hast verloren"
 label_settings = SubResource("LabelSettings_g4v7s")
 
 [node name="CanvasLayerHUD" type="CanvasLayer" parent="." unique_id=1264964107]
-visible = false
 
 [node name="Label" type="Label" parent="CanvasLayerHUD" unique_id=895457982]
 offset_left = 953.0
