@@ -1,14 +1,13 @@
 extends Node3D
 
 @onready var defeat_screen = $CanvasLayerDefeat
-@onready var win_screen = $CanvasLayerDefeat/CanvasLayerWin
+@onready var win_screen = $CanvasLayerVictory
 @onready var hud_label = $CanvasLayerHUD/Label
 @onready var death_barrier = get_tree().current_scene.find_child("DeathBarrier")
 @onready var coins = get_tree().current_scene.find_child("Coins")
 @onready var coin_count = coins.get_child_count()
 var current_coins = 0
 var game_over = false
-
 
 ######################## Münzenlogik
 func _collected_coin() -> void:
