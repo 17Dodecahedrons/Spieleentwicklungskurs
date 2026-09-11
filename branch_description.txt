@@ -1,1 +1,1 @@
-vertex shading - blur
+vertex shading

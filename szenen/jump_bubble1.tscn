@@ -12,7 +12,7 @@ material = SubResource("ShaderMaterial_ykmtj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hh2r7"]
 
-[node name="JumpBubble" type="Node3D" unique_id=833237062]
+[node name="JumpBubble1" type="Node3D" unique_id=833237062]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1337346715 groups=["jumpbubble"]]
 collision_mask = 0
