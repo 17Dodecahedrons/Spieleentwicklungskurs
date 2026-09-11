@@ -4,10 +4,10 @@ extends StaticBody3D
 var hit_intensity = 0.0
 
 func _jiggle() -> void:
-	hit_intensity = 0.3
+	hit_intensity = 0.3 # Welle einschlagen
 
 func _process(delta: float) -> void:
 	if hit_intensity > 0:
 		jump_bubble_mesh.get_active_material(0).set_shader_parameter("hit_intensity", hit_intensity)
-		hit_intensity -= delta
+		hit_intensity -= delta # Welle schwächer werden lassen
 		
