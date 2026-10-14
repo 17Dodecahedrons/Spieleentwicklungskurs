@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cg4s34hmgjgmg" path="res://szenen/box_1.tscn" id="1_o815p"]
 [ext_resource type="PackedScene" uid="uid://d4bvn6cx8y2ce" path="res://szenen/steve.tscn" id="2_liswp"]
+[ext_resource type="Texture2D" uid="uid://dfy3chc7qii2c" path="res://images/MCSM_Feather-3370757851.png" id="2_rdh1c"]
 [ext_resource type="PackedScene" uid="uid://b0ng4i8ihueso" path="res://szenen/jump_bubble1.tscn" id="3_041cm"]
 [ext_resource type="PackedScene" uid="uid://csa6k5800fvi0" path="res://szenen/game_manager.tscn" id="4_58t2n"]
 [ext_resource type="Script" uid="uid://ckscgudqvvopu" path="res://skripte/death_barrier.gd" id="5_0xjei"]
@@ -12,11 +13,13 @@ size = Vector3(17, 0.5, 17)
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8f83"]
 size = Vector3(17, 0.5, 17)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o815p"]
-albedo_color = Color(0.58431375, 0.98039216, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bbe5"]
+albedo_texture = ExtResource("2_rdh1c")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(3, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_liswp"]
-material = SubResource("StandardMaterial3D_o815p")
+material = SubResource("StandardMaterial3D_0bbe5")
 size = Vector3(1.3, 1, 1.5)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_57qmd"]
@@ -58,7 +61,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1957154, 0, 0)
 [node name="Box2" parent="Boxen" unique_id=1028594464 instance=ExtResource("1_o815p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8692508, 0, 0)
 
-[node name="MeshInstance3D" parent="Boxen/Box2/RigidBody3D" parent_id_path=PackedInt32Array(1028594464, 1729102894) index="0" unique_id=168233386]
+[node name="RigidBody3D" parent="Boxen/Box2" index="0" unique_id=1729102894]
+collision_mask = 3
+mass = 0.001
+
+[node name="MeshInstance3D" parent="Boxen/Box2/RigidBody3D" index="0" unique_id=168233386]
 mesh = SubResource("BoxMesh_liswp")
 
 [node name="Box3" parent="Boxen" unique_id=485001138 instance=ExtResource("1_o815p")]
@@ -81,6 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 4.4302
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0542703, 0.25924516, 6.570498)
 
 [node name="GameManager" parent="." unique_id=1728041114 instance=ExtResource("4_58t2n")]
+process_mode = 3
 
 [node name="DeathBarrier" type="Area3D" parent="." unique_id=1402272333]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.787898, 0)
